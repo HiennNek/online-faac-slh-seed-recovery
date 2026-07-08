@@ -1,6 +1,6 @@
 // Change these for your deployment:
-const GH_OWNER = 'your-username';
-const GH_REPO = 'faac-slh-seed-recovery';
+const GH_OWNER = 'HiennNek';
+const GH_REPO = 'online-faac-slh-seed-recovery-bucket';
 const GH_RELEASE = 'v1.0';
 const GH_BASE = `https://github.com/${GH_OWNER}/${GH_REPO}/releases/download/${GH_RELEASE}`;
 
