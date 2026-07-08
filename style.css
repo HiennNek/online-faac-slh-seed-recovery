@@ -1,0 +1,40 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 20px;
+}
+.container { max-width: 680px; margin: 0 auto; }
+h1 { font-size: 1.5rem; margin-bottom: 4px; }
+.subtitle { color: #8b949e; font-size: 0.9rem; margin-bottom: 20px; }
+.card {
+  background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+  padding: 20px; margin-bottom: 16px;
+}
+.card h2 { font-size: 1rem; margin-bottom: 12px; color: #f0f6fc; }
+.field { margin-bottom: 12px; }
+.field label { display: block; font-size: 0.85rem; color: #8b949e; margin-bottom: 4px; }
+.field input, .field textarea {
+  width: 100%; padding: 8px 12px; background: #0d1117; border: 1px solid #30363d;
+  border-radius: 6px; color: #c9d1d9; font-family: 'SF Mono', monospace; font-size: 0.9rem;
+}
+.field textarea { resize: vertical; min-height: 80px; }
+.field-note { font-size: 0.8rem; color: #8b949e; margin-bottom: 12px; }
+button {
+  background: #238636; color: #fff; border: none; border-radius: 6px;
+  padding: 10px 20px; font-size: 0.95rem; cursor: pointer; width: 100%;
+}
+button:hover { background: #2ea043; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.progress-bar {
+  background: #0d1117; border-radius: 6px; height: 8px; overflow: hidden; margin-bottom: 8px;
+}
+.progress-bar div {
+  background: #238636; height: 100%; width: 0%; transition: width 0.3s;
+}
+#progress-text { font-size: 0.85rem; color: #8b949e; }
+.error { border-color: #da3633; }
+.candidate { padding: 8px 0; border-bottom: 1px solid #21262d; font-family: 'SF Mono', monospace; font-size: 0.85rem; }
+.candidate:last-child { border-bottom: none; }
+.seed-found { color: #3fb950; font-weight: bold; }
+.seed-list { margin-top: 12px; max-height: 400px; overflow-y: auto; }
+.toggle-list { color: #58a6ff; cursor: pointer; font-size: 0.85rem; margin-top: 8px; display: inline-block; }

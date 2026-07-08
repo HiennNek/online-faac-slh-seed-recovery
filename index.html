@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAAC SLH Seed Recovery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>FAAC SLH Seed Recovery</h1>
+  <p class="subtitle">Recover a FAAC SLH remote seed from captured frames</p>
+
+  <div class="card">
+    <h2>Input</h2>
+    <div class="field">
+      <label for="mfkey">Manufacturer Key (hex, 16 digits)</label>
+      <input type="text" id="mfkey" value="53696C7669618C14" maxlength="16" placeholder="e.g. 53696C7669618C14">
+    </div>
+    <div class="field">
+      <label for="frames">Frames (hex, 16 digits each, one per line)</label>
+      <textarea id="frames" rows="4" placeholder="A0CE0C75E0B64119&#10;A0CE0C75AB79166A&#10;A0AB0BD18A0AE46C"></textarea>
+    </div>
+    <div class="field-note">At least 2 frames recommended. 3+ frames gives a unique result.</div>
+    <button id="recover-btn" onclick="startRecovery()">Recover Seed</button>
+  </div>
+
+  <div id="progress-area" class="card" style="display:none;">
+    <h2>Progress</h2>
+    <div class="progress-bar"><div id="progress-fill"></div></div>
+    <div id="progress-text">Initializing...</div>
+  </div>
+
+  <div id="result-area" class="card" style="display:none;">
+    <h2>Result</h2>
+    <div id="result-content"></div>
+  </div>
+
+  <div id="error-area" class="card error" style="display:none;">
+    <h2>Error</h2>
+    <div id="error-content"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
