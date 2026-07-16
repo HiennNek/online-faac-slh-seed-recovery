@@ -4,42 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAAC SLH Seed Recovery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
+
+<div class="topbar">
   <h1>FAAC SLH Seed Recovery</h1>
-  <p class="subtitle">Recover a FAAC SLH remote seed from captured frames</p>
+  <span class="badge">WebGPU</span>
+</div>
 
-  <div class="card">
-    <h2>Input</h2>
-    <div class="field">
-      <label for="mfkey">Manufacturer Key (hex, 16 digits)</label>
-      <input type="text" id="mfkey" value="53696C7669618C14" maxlength="16" placeholder="e.g. 53696C7669618C14">
-    </div>
-    <div class="field">
+<div class="main-row">
+
+  <div class="panel-left">
+    <div class="panel-label">Input</div>
+
+    <div class="field-group">
       <label for="frames">Frames (hex, 16 digits each, one per line)</label>
-      <textarea id="frames" rows="4" placeholder="A0CE0C75E0B64119&#10;A0CE0C75AB79166A&#10;A0AB0BD18A0AE46C"></textarea>
+      <textarea id="frames" rows="5" placeholder="A0CE0C75E0B64119&#10;A0CE0C75AB79166A&#10;A0AB0BD18A0AE46C"></textarea>
+      <div class="note">At least 2 frames. 4+ recommended for a guaranteed unique result.</div>
     </div>
-    <div class="field-note">At least 2 frames recommended. 3+ frames gives a unique result.</div>
-    <button id="recover-btn" onclick="startRecovery()">Recover Seed</button>
+
+    <div class="check-row">
+      <input type="checkbox" id="custom-mfkey-check">
+      <label for="custom-mfkey-check">Custom manufacturer key</label>
+    </div>
+
+    <div id="custom-mfkey-field">
+      <div class="field-group">
+        <label for="mfkey">Manufacturer key (hex, 16 digits)</label>
+        <input type="text" id="mfkey" value="53696C7669618C14" maxlength="16" placeholder="e.g. 53696C7669618C14">
+      </div>
+    </div>
+
+    <div id="search-all-section" style="border-top:1px solid var(--border);padding-top:12px;margin-top:4px;display:none;">
+      <div class="check-row">
+        <input type="checkbox" id="search-all-check">
+        <label for="search-all-check">Search all candidates</label>
+      </div>
+      <div class="note-sm" style="margin-left:22px;">Off: stops at first match to save time.</div>
+    </div>
+
+    <button class="btn" id="recover-btn" onclick="startRecovery()">Recover Seed</button>
   </div>
 
-  <div id="progress-area" class="card" style="display:none;">
-    <h2>Progress</h2>
-    <div class="progress-bar"><div id="progress-fill"></div></div>
-    <div id="progress-text">Initializing...</div>
+  <div class="content-right">
+    <div id="progress-area" class="section hidden">
+      <div class="section-title">Progress</div>
+      <div class="progress-track"><div id="progress-fill"></div></div>
+      <div id="progress-text">Initialising…</div>
+    </div>
+
+    <div id="result-area" class="section hidden">
+      <div class="section-title">Result</div>
+      <div id="result-content"></div>
+    </div>
+
+    <div id="error-area" class="section hidden">
+      <div class="section-title">Error</div>
+      <div id="error-content"></div>
+    </div>
   </div>
 
-  <div id="result-area" class="card" style="display:none;">
-    <h2>Result</h2>
-    <div id="result-content"></div>
-  </div>
-
-  <div id="error-area" class="card error" style="display:none;">
-    <h2>Error</h2>
-    <div id="error-content"></div>
-  </div>
 </div>
 
 <script src="app.js"></script>
