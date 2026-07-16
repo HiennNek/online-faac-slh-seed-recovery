@@ -58,6 +58,7 @@ Note that you might need to press several times for the remote to sync with the 
 <p align="center">
 <img width="770" height="241" alt="image" src="https://github.com/user-attachments/assets/dcbc136a-2f8f-446c-b942-6c1680d0201d" />
 </p>
+Then restart the browser.
 
 Note that `#enable-vulkan` is only available for Linux/Android; other OSes still work without this flag.
 
